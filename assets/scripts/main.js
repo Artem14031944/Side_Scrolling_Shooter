@@ -3,9 +3,9 @@ const config = {
   width: 1280,
   height: 720,
   scene: [
-    StartScene, 
     BootScene, 
     PreloadScene,
+    StartScene, 
   ],
 };
 
