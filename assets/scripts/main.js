@@ -5,7 +5,8 @@ const config = {
   scene: [
     BootScene, 
     PreloadScene,
-    StartScene, 
+    StartScene,
+    GameScene,
   ],
 };
 

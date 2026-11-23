@@ -3,15 +3,27 @@ class StartScene extends Phaser.Scene {
     super('Start');
   }
 
-  preload() {
-    this.load.image('bg', 'assets/sprites/background.png');
-  }
-
   create() {
     this.createBackground();
+    this.createText();
+    this.setEvents();
   }
 
   createBackground() {
     this.add.sprite(0, 0, 'bg').setOrigin(0);
+  }
+
+  createText() {
+    this.text = this.add.text(config.width / 2, 500, 'Tap to start', {
+      font: '40px CurseCasual',
+      fill: '#ffffff',
+    });
+    this.text.setOrigin(0.5);
+  }
+
+  setEvents() {
+    this.input.on('pointerdown', () => {
+      this.scene.start('Game');
+    });
   }
 }
