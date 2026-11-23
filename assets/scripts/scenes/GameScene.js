@@ -5,6 +5,7 @@ class GameScene extends Phaser.Scene {
 
   create() {
     this.createBackground();
+    this.add.sprite(150, config.height / 2, 'dragon', 'dragon1');
   }
 
    createBackground() {
