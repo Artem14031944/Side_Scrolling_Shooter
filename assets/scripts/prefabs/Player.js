@@ -9,4 +9,8 @@ class Player extends Phaser.GameObjects.Sprite {
     this.scene.physics.add.existing(this);
     this.body.enable = true;
   }
+
+  move() {
+    if (this.scene.cursors.left.isDown) {}
+  }
 }

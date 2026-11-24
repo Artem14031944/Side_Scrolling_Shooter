@@ -5,8 +5,12 @@ class GameScene extends Phaser.Scene {
 
   create() {
     this.createBackground();
-
+    this.cursors = this.input.keyboard.createCursorKeys();
     this.player = new Player(this);
+  }
+
+  update() {
+    
   }
 
   createBackground() {
