@@ -10,7 +10,7 @@ class GameScene extends Phaser.Scene {
   }
 
   update() {
-    
+    this.player.move();
   }
 
   createBackground() {
