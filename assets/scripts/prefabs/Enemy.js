@@ -5,8 +5,11 @@ class Enemy extends Phaser.GameObjects.Sprite {
   }
 
   static generate(scene) {
-    config.width - 150, config.height / 2, 'enemy', 'enemy1'
-    return new Enemy(scene, x, y, texture, frame);
+    const x = config.width + 200;
+    const y = Phaser.Math.Between(100, config.height - 100); 
+    const id = Phaser.Math.Between(1, 4);
+
+    return new Enemy(scene, x, y, 'enemy', `enemy${id}`);
   }
 
   init() {
