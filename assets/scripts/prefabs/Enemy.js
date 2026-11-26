@@ -21,13 +21,15 @@ class Enemy extends Phaser.GameObjects.Sprite {
   }
 
   update() {
-    if (this.x < -this.width) {
+    if (this.active && this.x < -this.width) {
       this.setAlive(false);
     }
   }
 
   setAlive(status) {
     this.body.enable = status;
+    this.setVisible(status);
+    this.setActive(status);
   }
 
   move() {

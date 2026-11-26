@@ -2,7 +2,7 @@ class Enemies extends Phaser.Physics.Arcade.Group {
   constructor(scene) {
     super();
     this.scene = scene;
-    this.count = 10;
+    this.count = 1;
     this.timer = this.scene.time.addEvent({
       delay: 1000,
       loop: true,
