@@ -17,6 +17,17 @@ class Enemy extends Phaser.GameObjects.Sprite {
     this.scene.physics.add.existing(this);
     this.body.enable = true;
     this.velocity = -250;
+    this.scene.events.on('update', this.update, this);
+  }
+
+  update() {
+    if (this.x < -this.width) {
+      this.setAlive(false);
+    }
+  }
+
+  setAlive(status) {
+    this.body.enable = status;
   }
 
   move() {
