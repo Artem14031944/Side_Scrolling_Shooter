@@ -6,7 +6,7 @@ class Player extends Enemy {
   init() {
     super.init();
     this.velocity = 500;
-    let fire = Fire.generate(this.scene);
+    let fire = Fire.generate(this.scene, this);
   }
 
   move() {

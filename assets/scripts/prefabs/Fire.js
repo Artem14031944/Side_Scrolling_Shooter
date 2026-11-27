@@ -4,10 +4,16 @@ class Fire extends Phaser.GameObjects.Sprite {
     this.init(data);
   }
 
-  static generate(scene) {
-    const { x, y, id } = Enemy.generateAttributes();
+  static generate(scene, source) {
+    const data = {
+      scene,
+      x: source.x + source.width / 2,
+      y: source.y,
+      texture: 'fire',
+      velocity: 750,
+    }
 
-    return new Enemy(scene, x, y, 'enemy', `enemy${id}`);
+    return new Fire(data);
   }
 
   init(data) {
