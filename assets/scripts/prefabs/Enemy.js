@@ -37,8 +37,8 @@ class Enemy extends Phaser.GameObjects.Sprite {
 
     this.x = x;
     this.y = y;
-    this.setFrame(`enemy${id}`);
 
+    this.setFrame(`enemy${id}`);
     this.setAlive(true);
   }
 
