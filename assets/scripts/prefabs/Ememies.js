@@ -22,8 +22,6 @@ class Enemies extends Phaser.Physics.Arcade.Group {
     }
   }
 
-  getFirstDead() {}
-
   createEnemy() {
     let enemy = this.getFirstDead();
 

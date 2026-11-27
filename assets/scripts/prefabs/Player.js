@@ -6,7 +6,19 @@ class Player extends Enemy {
   init() {
     super.init();
     this.velocity = 500;
-    let fire = Fire.generate(this.scene, this);
+
+    this.fires = new Fires(this.scene);
+
+    this.timer = this.scene.time.addEvent({
+      delay: 500,
+      loop: true,
+      callback: this.fire,
+      callbackScope: this,
+    });
+  }
+
+  fire() {
+    this.fires.createFire(this);
   }
 
   move() {
@@ -17,7 +29,6 @@ class Player extends Enemy {
     } else if (this.scene.cursors.right.isDown) {
       this.body.setVelocityX(this.velocity);
     }
-
 
     if (this.scene.cursors.up.isDown) {    
       this.body.setVelocityY(-this.velocity);

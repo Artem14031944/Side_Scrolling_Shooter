@@ -24,4 +24,6 @@ class Fire extends Phaser.GameObjects.Sprite {
   move() {
     this.body.setVelocityX(this.velocity);
   }
+
+  reset() {}
 }

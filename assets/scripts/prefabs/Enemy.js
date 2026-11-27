@@ -33,7 +33,7 @@ class Enemy extends Phaser.GameObjects.Sprite {
   }
 
   reset() {
-    const { x, y, id } = this.generateAttributes();
+    const { x, y, id } = Enemy.generateAttributes();
 
     this.x = x;
     this.y = y;
