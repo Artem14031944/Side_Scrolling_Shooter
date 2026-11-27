@@ -4,10 +4,16 @@ class Enemy extends Phaser.GameObjects.Sprite {
     this.init();
   }
 
-  static generate(scene) {
+  static generateAttributes() {
     const x = config.width + 200;
     const y = Phaser.Math.Between(100, config.height - 100); 
     const id = Phaser.Math.Between(1, 4);
+
+    return { x, y, id };
+  }
+
+  static generate(scene) {
+    const { x, y, id } = Enemy.generateAttributes();
 
     return new Enemy(scene, x, y, 'enemy', `enemy${id}`);
   }
@@ -16,7 +22,7 @@ class Enemy extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this); 
     this.scene.physics.add.existing(this);
     this.body.enable = true;
-    this.velocity = -250;
+    this.velocity = -250 * 3;
     this.scene.events.on('update', this.update, this);
   }
 
@@ -24,6 +30,16 @@ class Enemy extends Phaser.GameObjects.Sprite {
     if (this.active && this.x < -this.width) {
       this.setAlive(false);
     }
+  }
+
+  reset() {
+    const { x, y, id } = this.generateAttributes();
+
+    this.x = x;
+    this.y = y;
+    this.setFrame(`enemy${id}`);
+
+    this.setAlive(true);
   }
 
   setAlive(status) {
