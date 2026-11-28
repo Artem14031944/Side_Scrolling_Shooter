@@ -18,10 +18,6 @@ class Essence extends Phaser.GameObjects.Sprite {
     }
   }
 
-  isDead() {
-    return false;
-  }
-
   reset(x, y) {
     this.x = x;
     this.y = y;
@@ -37,5 +33,9 @@ class Essence extends Phaser.GameObjects.Sprite {
 
   move() {
     this.body.setVelocityX(this.velocity);
+  }
+
+  isDead() {
+    return false;
   }
 }

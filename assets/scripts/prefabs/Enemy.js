@@ -30,6 +30,4 @@ class Enemy extends Essence {
   isDead() {
     return this.x < -this.width;
   }
-
-
 }
