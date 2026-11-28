@@ -1,9 +1,4 @@
-class Fire extends Phaser.GameObjects.Sprite {
-  constructor(data) {
-    super(data.scene, data.x, data.y, data.texture);
-    this.init(data);
-  }
-
+class Fire extends Essence {
   static generate(scene, source) {
     const data = {
       scene,
@@ -22,26 +17,7 @@ class Fire extends Phaser.GameObjects.Sprite {
     this.scene.events.on('update', this.update, this);
   }
 
-  update() {
-    if (this.active && this.x < -this.width || this.x > config.width + this.width) {
-      this.setAlive(false);
-    }
-  }
-
-  setAlive(status) {
-    this.body.enable = status;
-    this.setVisible(status);
-    this.setActive(status);
-  }
-
-  move() {
-    this.body.setVelocityX(this.velocity);
-  }
-
-  reset(source) {
-    this.x = source.x + source.width / 2;
-    this.y = source.y;
-
-    this.setAlive(true);
+  isDead() {
+    return this.x < -this.width || this.x > config.width + this.width;
   }
 }
